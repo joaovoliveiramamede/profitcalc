@@ -1,18 +1,26 @@
-## Getting Started
+## Introdução
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Está projeto é destinado a obter o lucro de uma empresa que venda produtos por unidades. Com uma determinada venda, você deve 
+levar em consideração que teria custo para a produção do produto, e um custo fixo que você tem para fazer a produção, seja ela um aluguel, funcionarios, energia ou aguá, etc. A receita é o valor final do produto.
 
-## Folder Structure
+## Estrutura de pastas
 
-The workspace contains two folders by default, where:
+O projeto contem duas pastas padrão, onde:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src`: pasta que contem os arquivos de codigo.
+- `lib`: pasta que contem as libs que utilizamos no projeto.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Dados processados
+Aqui nos definiremos as propriedades que precisaremos para analisar e chegar a um valor que defina o lucro em determinado tempo:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- `revenue`: receita, seria o valor do produto por unidade.
+- `costPerunit`: custo por unidade, ou seja, custo que teve para produzir uma unidade do produto.
+- `costForProduction`: custo para produção, ou seja, custo que você teve em `x` tempo.
 
-## Dependency Management
+## Começando
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Para rodar o projeto, você deve primeiro compilar as libs juntamente com as classes de codigo utilizando o compilador `javac`do java, em sua versão 17. 
+Logo em seguida, execute utilizando os comandos:
+
+- compile: `javac -cp "lib/*" -d bin $(find src -name "*.java")` - linux
+- execute: `java -cp "bin:lib/*" com.profit.calc.Main` - linux
