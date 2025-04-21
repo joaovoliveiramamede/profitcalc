@@ -1,14 +1,19 @@
 package com.profit.calc.finance.model;
 
-public class ProfitRequest {
+import java.io.Serializable;
+
+public class ProfitData implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private Double receita;
 	private Double custoUnidade;
 	private Double custoProducao;
-	private Integer qtdVendidas;
+	private Integer units;
 	
-	public ProfitRequest() {}
+	public ProfitData() {}
 	
-	public ProfitRequest(String nome, Double receita, Double custoUnidade, Double custoProducao) {
+	public ProfitData(String nome, Double receita, Double custoUnidade, Double custoProducao) {
 		super();
 		this.receita = receita;
 		this.custoUnidade = custoUnidade;
@@ -39,12 +44,11 @@ public class ProfitRequest {
 		this.custoProducao = custoProducao;
 	}
 
-	public Integer getQtdVendidas() {
-		return qtdVendidas;
-	}
-
-	public void setQtdVendidas(Integer qtdVendidas) {
-		this.qtdVendidas = qtdVendidas;
+	public Integer getUnits() {
+		return units;
 	}
 	
+	public void setUnits(Integer units) {
+		this.units = units;
+	}
 }

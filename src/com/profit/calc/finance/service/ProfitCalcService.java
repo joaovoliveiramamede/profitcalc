@@ -1,23 +1,22 @@
 package com.profit.calc.finance.service;
 
-import com.profit.calc.finance.model.ProfitRequest;
+import com.profit.calc.finance.model.ExpenseData;
+import com.profit.calc.finance.model.ProfitData;
+import com.profit.calc.finance.service.contract.ExpenseServiceContract;
 
-public class ProfitCalcService {
-	public int calc(int receita, int custo) {
-        return  custo - receita;
-    }
-	
-	public Double profitCalc(ProfitRequest request) {
-		Integer unidadesVendidas = request.getQtdVendidas();
+public class ProfitCalcService implements ExpenseServiceContract {
+
 		
-		Double receita = request.getReceita() * unidadesVendidas;
+	@Override
+	public Double calculate(ProfitData data) {
 		
-		Double custoFixo = request.getCustoUnidade() * unidadesVendidas;
-		Double custoProducao = request.getCustoProducao();
-		Double custo = custoFixo + custoProducao;
+		Integer units = data.getUnits();
 		
-		Double lucro = receita - custo;
+		Double receita = data.getReceita() * units;
+		Double custoPorUnidade = data.getCustoUnidade() * units;
+		Double custoParaProducao = data.getCustoProducao();
 		
-		return lucro;
+		Double result = receita - (custoPorUnidade + custoParaProducao);
+		return result;
 	}
 }
